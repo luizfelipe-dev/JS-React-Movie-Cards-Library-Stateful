@@ -13,7 +13,6 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    // this.onClick = this.onClick.bind(this);
     this.resetState = this.resetState.bind(this);
 
     this.state = {
@@ -34,8 +33,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  resetState() {
-    // ev.preventDefault();
+  resetState(ev) {
+    ev.preventDefault();
     this.setState({
       subtitle: '',
       title: '',

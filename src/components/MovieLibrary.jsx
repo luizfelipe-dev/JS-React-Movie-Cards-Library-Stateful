@@ -10,26 +10,22 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.onChangeSearchBar = this.onChangeSearchBar.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies,
     };
   }
 
-  onSearchTextChange({ target }) {
-    const { name, value } = target;
-    this.setState = {
+  onChangeSearchBar({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
       [name]: value,
-    };
-  }
-
-  onClick() {
-    console.log('Evento OnClick');
+    });
   }
 
   render() {
@@ -40,7 +36,7 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          onSearchTextChange={ this.onSearchTextChange }
+          onChangeSearchBar={ this.onChangeSearchBar }
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
