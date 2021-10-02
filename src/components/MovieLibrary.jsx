@@ -31,19 +31,19 @@ class MovieLibrary extends Component {
 
   filterMovie() {
     const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, selectedGenre } = this.state;
 
     const filteredMovie = movies;
 
-    if (bookmarkedOnly) {
+    if (selectedGenre === '') {
       return filteredMovie
-        .filter((movie) => movie.genre
-          .toLowerCase()
-          .includes(searchText.toLowerCase()));
+        .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase()));
     }
 
-    return filteredMovie
-      .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase()));
+    return filteredMovie.filter((movie) => movie.title
+      .toLowerCase()
+      .includes(searchText.toLowerCase())
+      && movie.genre === selectedGenre);
   }
 
   render() {
