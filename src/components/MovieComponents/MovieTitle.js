@@ -6,7 +6,8 @@ class MovieTitle extends React.Component {
     const { handleChange, value } = this.props;
     return (
       <label htmlFor="title-input" data-testid="title-input-label">
-        Título
+        Title:
+        {' '}
         <input
           name="title"
           value={ value }

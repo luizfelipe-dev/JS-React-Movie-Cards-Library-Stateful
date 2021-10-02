@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -47,17 +46,18 @@ class MovieLibrary extends Component {
   }
 
   render() {
+    const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const filteredMovie = this.filterMovie();
 
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
           onChangeSearchBar={ this.onChangeSearchBar }
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
+          movies={ movies }
         />
         <MovieList
           movies={ filteredMovie }
@@ -66,7 +66,6 @@ class MovieLibrary extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
-        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }

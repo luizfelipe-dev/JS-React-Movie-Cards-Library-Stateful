@@ -6,7 +6,8 @@ class MovieSubtitle extends React.Component {
     const { value, handleChange } = this.props;
     return (
       <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-        Subtítulo
+        Subtitle:
+        {' '}
         <input
           name="subtitle"
           value={ value }

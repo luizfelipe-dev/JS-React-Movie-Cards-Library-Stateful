@@ -1,17 +1,22 @@
+/* eslint-disable */
+
 import propTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'react-router-dom'
+import '../style/SearchBar.css';
 
 class SearchBar extends React.Component {
+  
   render() {
     const { onChangeSearchBar, searchText, bookmarkedOnly, selectedGenre } = this.props;
-
+    
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" className="searchBar">
         <label
           id="text-input-label"
           htmlFor="inputSearchBar"
         >
-          Inclui o texto
+          Filter by Title:{' '}
           <input
             name="searchText"
             type="text"
@@ -20,7 +25,7 @@ class SearchBar extends React.Component {
           />
         </label>
         <label htmlFor="checkboxInput" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
+          Favorite only {' '}
           <input
             name="bookmarkedOnly"
             type="checkbox"
@@ -29,18 +34,21 @@ class SearchBar extends React.Component {
           />
         </label>
         <label htmlFor="select-input" data-testid="select-input-label">
-          Filtrar por gênero
+          Filter by Genre {' '}
           <select
+            id="selectedGenreInput"
             name="selectedGenre"
             value={ selectedGenre }
             onChange={ onChangeSearchBar }
           >
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
+            <option value=''>All</option>
+            <option value="action" data-testid="select-option">Action</option>
+            <option value="comedy" data-testid="select-option">Comedy</option>
+            <option value="thriller" data-testid="select-option">Thriller</option>
+            <option value="fantasy" data-testid="select-option">Fantasy</option>
           </select>
         </label>
+        <Link to="/addmovie">Add Movie</Link>
       </form>
     );
   }

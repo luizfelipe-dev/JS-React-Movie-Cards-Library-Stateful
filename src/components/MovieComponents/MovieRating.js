@@ -6,7 +6,8 @@ class MovieRating extends React.Component {
     const { handleChange, value } = this.props;
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
-        Avaliação
+        Rating:
+        {' '}
         <input
           type="number"
           name="rating"

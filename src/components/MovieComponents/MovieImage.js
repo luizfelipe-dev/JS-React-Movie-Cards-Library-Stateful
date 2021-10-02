@@ -6,7 +6,8 @@ class MovieImage extends React.Component {
     const { handleChange, value } = this.props;
     return (
       <label htmlFor="image-input" data-testid="image-input-label">
-        Imagem
+        Image Path:
+        {' '}
         <input
           name="imagePath"
           type="text"
