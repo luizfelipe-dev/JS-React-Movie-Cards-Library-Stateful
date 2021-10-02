@@ -5,14 +5,11 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const { movies, searchText } = this.props;
-
-    const filteredMovie = movies
-      .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase()));
+    const { movies } = this.props;
 
     return (
       <div data-testid="movie-list" className="movie-list">
-        { filteredMovie
+        { movies
           .map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
       </div>
     );
