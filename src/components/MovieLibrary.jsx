@@ -31,18 +31,22 @@ class MovieLibrary extends Component {
 
   filterMovie() {
     const { movies } = this.props;
-    const { searchText } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
-    const filteredMovie = movies
-      .filter((movie) => movie.title
-        .toLowerCase()
-        .includes(searchText.toLowerCase()));
-    console.log('filteredMovie', filteredMovie);
-    return filteredMovie;
+    const filteredMovie = movies;
+
+    if (bookmarkedOnly) {
+      return filteredMovie
+        .filter((movie) => movie.genre
+          .toLowerCase()
+          .includes(searchText.toLowerCase()));
+    }
+
+    return filteredMovie
+      .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase()));
   }
 
   render() {
-    const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const filteredMovie = this.filterMovie();
 
