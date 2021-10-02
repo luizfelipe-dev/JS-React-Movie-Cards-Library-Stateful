@@ -9,12 +9,15 @@ import MovieStoryLine from './MovieComponents/MovieStoryline';
 import MovieRating from './MovieComponents/MovieRating';
 import MovieGenre from './MovieComponents/MovieGenre';
 import '../style/AddMovie.css';
+import movies from '../data';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
+
     this.handleChange = this.handleChange.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -34,6 +37,16 @@ class AddMovie extends React.Component {
     });
   }
 
+  onClick(ev) {
+    ev.preventDefault();
+
+    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+
+    const newMovie = { title, subtitle, imagePath, storyLine, rating, genre };
+
+    movies.push(newMovie);
+  }
+
   resetState(ev) {
     ev.preventDefault();
     this.setState({
@@ -48,7 +61,6 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
-    const { onClick } = this.props;
 
     return (
       <>
@@ -61,12 +73,9 @@ class AddMovie extends React.Component {
           <MovieGenre handleChange={ this.handleChange } value={ genre } />
 
           <button
-            type="submit"
+            type="button"
             data-testid="send-button"
-            onClick={ () => {
-              onClick();
-              this.resetState();
-            } }
+            onClick={ this.onClick }
           >
             Adicionar filme
           </button>

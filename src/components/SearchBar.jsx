@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom'
 import '../style/SearchBar.css';
+import AddMovie from './AddMovie';
 
 class SearchBar extends React.Component {
   
