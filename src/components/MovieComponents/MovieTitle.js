@@ -9,6 +9,7 @@ class MovieTitle extends React.Component {
         Title:
         {' '}
         <input
+          className="movieTitle"
           name="title"
           value={ value }
           data-testid="title-input"

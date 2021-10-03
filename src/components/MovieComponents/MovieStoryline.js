@@ -9,7 +9,7 @@ class MovieStoryline extends React.Component {
         Storyline:
         {' '}
         <textarea
-          name="storyLine"
+          name="storyline"
           type="text"
           value={ value }
           data-testid="storyline-input"
