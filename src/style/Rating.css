@@ -1,0 +1,15 @@
+.movie-card-rating {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+
+.likeButton{
+    width: 30px;
+    lighting-color: blue;
+}
+
+.likeButtonClicked{
+    width: 30px;
+    border: 2px solid rebeccapurple;
+}

@@ -28,7 +28,7 @@ class MovieLibrary extends Component {
 
   filterMovie() {
     const { movies } = this.props;
-    const { searchText, selectedGenre } = this.state;
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
 
     const filteredMovie = movies;
 
@@ -54,6 +54,7 @@ class MovieLibrary extends Component {
           onChangeSearchBar={ this.onChangeSearchBar }
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
+          favoriteClicked={ this.favoriteClicked }
           selectedGenre={ selectedGenre }
           movies={ movies }
         />

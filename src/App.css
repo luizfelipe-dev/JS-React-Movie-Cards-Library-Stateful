@@ -1,5 +1,5 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgba(245,245,245,255);
   box-sizing: border-box;
   font-size: 16px;
 }
@@ -20,6 +20,7 @@ body {
 }
 
 .movie-list {
+  min-height: 100vh;
   display: flex;
   flex-flow: row wrap;
   padding: 48px 30px;

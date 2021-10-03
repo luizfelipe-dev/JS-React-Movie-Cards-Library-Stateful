@@ -5,16 +5,18 @@ class MovieTitle extends React.Component {
   render() {
     const { handleChange, value } = this.props;
     return (
-      <label htmlFor="title-input" data-testid="title-input-label">
-        Title:
-        {' '}
-        <input
-          className="movieTitle"
-          name="title"
-          value={ value }
-          data-testid="title-input"
-          onChange={ handleChange }
-        />
+      <label htmlFor="title-input" data-testid="title-input-label" className="label">
+        <div className="control">
+          Título:
+          {' '}
+          <input
+            className="movieTitle input"
+            name="title"
+            value={ value }
+            data-testid="title-input"
+            onChange={ handleChange }
+          />
+        </div>
       </label>
     );
   }
