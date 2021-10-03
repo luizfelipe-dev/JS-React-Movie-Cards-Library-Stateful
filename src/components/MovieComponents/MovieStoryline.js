@@ -6,7 +6,8 @@ class MovieStoryline extends React.Component {
     const { handleChange, value } = this.props;
     return (
       <label htmlFor="image-input" data-testid="storyline-input-label">
-        Sinopse
+        Storyline:
+        {' '}
         <textarea
           name="storyLine"
           type="text"

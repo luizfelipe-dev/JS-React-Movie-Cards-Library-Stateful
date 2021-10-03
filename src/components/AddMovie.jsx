@@ -1,6 +1,6 @@
-// implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import MovieTitle from './MovieComponents/MovieTitle';
 import MovieSubtitle from './MovieComponents/MovieSubtitle';
@@ -8,12 +8,16 @@ import MovieImage from './MovieComponents/MovieImage';
 import MovieStoryLine from './MovieComponents/MovieStoryline';
 import MovieRating from './MovieComponents/MovieRating';
 import MovieGenre from './MovieComponents/MovieGenre';
+import '../style/AddMovie.css';
+import movies from '../data';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
+
     this.handleChange = this.handleChange.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -33,6 +37,16 @@ class AddMovie extends React.Component {
     });
   }
 
+  onClick(ev) {
+    ev.preventDefault();
+
+    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+
+    const newMovie = { title, subtitle, imagePath, storyLine, rating, genre };
+
+    movies.push(newMovie);
+  }
+
   resetState(ev) {
     ev.preventDefault();
     this.setState({
@@ -47,28 +61,29 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
-    const { onClick } = this.props;
 
     return (
-      <form data-testid="add-movie-form">
-        <MovieTitle handleChange={ this.handleChange } value={ title } />
-        <MovieSubtitle handleChange={ this.handleChange } value={ subtitle } />
-        <MovieImage handleChange={ this.handleChange } value={ imagePath } />
-        <MovieStoryLine handleChange={ this.handleChange } value={ storyLine } />
-        <MovieRating handleChange={ this.handleChange } value={ rating } />
-        <MovieGenre handleChange={ this.handleChange } value={ genre } />
+      <>
+        <form data-testid="add-movie-form" className="addMovie">
+          <MovieTitle handleChange={ this.handleChange } value={ title } />
+          <MovieSubtitle handleChange={ this.handleChange } value={ subtitle } />
+          <MovieImage handleChange={ this.handleChange } value={ imagePath } />
+          <MovieStoryLine handleChange={ this.handleChange } value={ storyLine } />
+          <MovieRating handleChange={ this.handleChange } value={ rating } />
+          <MovieGenre handleChange={ this.handleChange } value={ genre } />
 
-        <button
-          type="submit"
-          data-testid="send-button"
-          onClick={ () => {
-            onClick();
-            this.resetState();
-          } }
-        >
-          Adicionar filme
-        </button>
-      </form>
+          <button
+            type="button"
+            data-testid="send-button"
+            onClick={ this.onClick }
+          >
+            Adicionar filme
+          </button>
+        </form>
+        <center>
+          <Link to="/"> Voltar </Link>
+        </center>
+      </>
     );
   }
 }

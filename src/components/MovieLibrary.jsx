@@ -11,6 +11,7 @@ class MovieLibrary extends Component {
     super(props);
 
     this.onChangeSearchBar = this.onChangeSearchBar.bind(this);
+    this.filterMovie = this.filterMovie.bind(this);
 
     this.state = {
       searchText: '',
@@ -28,25 +29,45 @@ class MovieLibrary extends Component {
     });
   }
 
+  filterMovie() {
+    const { movies } = this.props;
+    const { searchText, selectedGenre } = this.state;
+
+    const filteredMovie = movies;
+
+    if (selectedGenre === '') {
+      return filteredMovie
+        .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase()));
+    }
+
+    return filteredMovie.filter((movie) => movie.title
+      .toLowerCase()
+      .includes(searchText.toLowerCase())
+      && movie.genre === selectedGenre);
+  }
+
   render() {
     const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const filteredMovie = this.filterMovie();
 
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
           onChangeSearchBar={ this.onChangeSearchBar }
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
+          movies={ movies }
         />
         <MovieList
-          movies={ movies }
+          movies={ filteredMovie }
           searchText={ searchText }
           filterMovie={ this.filterMovie }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
         />
-        <AddMovie onClick={ this.onClick } />
+        <AddMovie movies={ movies } />
       </div>
     );
   }
