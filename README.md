@@ -2,6 +2,8 @@
 
 Este projeto conta apenas com Front-end, estando os filmes salvos em um array apenas para demonstração.
 
+Link do App: https://moviecardslibrary.herokuapp.com/
+
 # Habilidades
 
 Este projeto foi criado para treinar passagens de informações entre componentes sem utilizar gerenciadores de estado.
