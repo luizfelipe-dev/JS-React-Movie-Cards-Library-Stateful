@@ -5,15 +5,22 @@ class MovieSubtitle extends React.Component {
   render() {
     const { value, handleChange } = this.props;
     return (
-      <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-        Subtitle:
-        {' '}
-        <input
-          name="subtitle"
-          value={ value }
-          data-testid="subtitle-input"
-          onChange={ handleChange }
-        />
+      <label
+        htmlFor="subtitle-input"
+        data-testid="subtitle-input-label"
+        className="label"
+      >
+        <div className="control">
+          Nome Original:
+          {' '}
+          <input
+            className="input"
+            name="subtitle"
+            value={ value }
+            data-testid="subtitle-input"
+            onChange={ handleChange }
+          />
+        </div>
       </label>
     );
   }

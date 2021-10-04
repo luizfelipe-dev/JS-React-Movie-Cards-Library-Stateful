@@ -1,0 +1,13 @@
+.movie-card {
+    background-color: whitesmoke;
+    height: 400px;
+}
+
+/* .movie-card-image {}
+.movie-card-body {}
+.movie-card-title {}
+.movie-card-subtitle {} */
+
+.movie-card-storyline {
+    height: 100px;
+}
