@@ -1,38 +1,13 @@
-# Boas vindas ao repositório do projeto de Movie Cards Library Stateful!
+# Boas vindas ao repositório do projeto Movie Cards Library Stateful! :movie_camera:
+
+Este projeto conta apenas com Front-end, estando os filmes salvos em um array apenas para demonstração.
+
+Link do App: https://moviecardslibrary.herokuapp.com/
 
 # Habilidades
 
-Nesse projeto vamos:
-  - Ler o estado de um componente e usá-lo para alterar o que exibimos no browser
-  - Inicializar um componente, dando a ele um estado pré-definido
-  - Atualizar o estado de um componente
-  - Capturar eventos utilizando a sintaxe do React
-  - Criar formulários utilizando sintaxe JSX com as tags : `input`, `textarea`, `select`, `form`
-  - Transmitir informações de componentes filhos para componentes pais via callbacks
+Este projeto foi criado para treinar passagens de informações entre componentes sem utilizar gerenciadores de estado.
 
-## O que deverá ser desenvolvido
+É possível filtrar filmes através da barra de busca e adicionar um filme novo.
 
-* Um cabeçalho;
-
-* Uma barra de busca, utilizada pra filtrar quais cartões serão exibidos na lista de cartões;
-
-* Uma lista de cartões, onde cada cartão representa um filme e possui uma imagem, título, subtítulo, sinopse e avaliação;
-
-* Um formulário para adicionar um novo cartão na biblioteca.
-
----
-
-## Componentes
-
-Esse projeto contém os seguintes `React Components`:
-
-   - Header (já veio pronto)
-   - MovieLibrary
-   - SearchBar
-   - MovieList (já veio pronto)
-   - MovieCard (já veio pronto)
-   - Rating (já veio pronto)
-   - AddMovie
-
-`Todos os componentes estãondentro da pasta `src/components`. 
----
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
